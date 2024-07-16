@@ -5,10 +5,10 @@ import './user-card.css';
 //render component
 
 export function UserCard(
-  id: string,
   name: string,
   email: string,
-  avatar: string
+  avatar: string,
+  id?: string
 ) {
   return `
         <div class="user-card" id="${id}">
@@ -45,7 +45,7 @@ export function CardEvents() {
 
   document.querySelectorAll('.card-edit').forEach((button) => {
     button.addEventListener('click', () => {
-      alert('edit');
+      NavigateTo(`/edit-user?userid=${button.getAttribute("userid")}`);
     });
   });
 }
