@@ -9,7 +9,7 @@ export async function EditUser() {
 
   const params = new URLSearchParams(window.location.search);
   const userID = params.get('userid');
-  const users: IUser[] = await getApi('http://localhost:3000/users');
+  const users: IUser[] = await getApi('https://my-json-server.typicode.com/JuanPabloArias803/TS-Users-CRUD/users');
   let userFlag: boolean = false;
   users.forEach((user) => {
     if (user.id === userID) {

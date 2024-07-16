@@ -37,7 +37,7 @@ export async function formAction(
       if (!$userName.value || !$userEmail.value || !$userAvatar.value || $userName.value.length>15 || $userEmail.value.length>20) {
         alert('Error inesperado');
       } else {
-        await postApi('http://localhost:3000/users', {
+        await postApi('https://my-json-server.typicode.com/JuanPabloArias803/TS-Users-CRUD/users', {
           name: $userName.value,
           email: $userEmail.value,
           avatar: $userAvatar.value,
@@ -48,7 +48,7 @@ export async function formAction(
   }
 
   if (action === 'edit') {
-    const user: IUser = await getApi(`http://localhost:3000/users/${userID}`);
+    const user: IUser = await getApi(`https://my-json-server.typicode.com/JuanPabloArias803/TS-Users-CRUD/users/${userID}`);
     $userName.value = user.name;
     $userEmail.value = user.email;
     $userAvatar.value = user.avatar;
@@ -57,7 +57,7 @@ export async function formAction(
       if (!$userName.value || !$userEmail.value || !$userAvatar.value || $userName.value.length>15 || $userEmail.value.length>20) {
         alert('Error inesperado');
       } else {
-        await putApi(`http://localhost:3000/users/${userID}`, {
+        await putApi(`https://my-json-server.typicode.com/JuanPabloArias803/TS-Users-CRUD/users/${userID}`, {
           name: $userName.value,
           email: $userEmail.value,
           avatar: $userAvatar.value,

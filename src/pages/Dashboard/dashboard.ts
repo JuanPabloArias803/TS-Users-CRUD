@@ -19,7 +19,7 @@ export async function Dashboard() {
 
   NavbarEvents();
 
-  const users: IUser[] = await getApi('http://localhost:3000/users');
+  const users: IUser[] = await getApi('https://my-json-server.typicode.com/JuanPabloArias803/TS-Users-CRUD/users');
   function renderCards() {
     let cardsChilds: string = '';
     users.forEach((user: IUser) => {

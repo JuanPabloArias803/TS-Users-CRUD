@@ -34,7 +34,7 @@ export function CardEvents() {
     button.addEventListener('click', async () => {
       if (confirm('¿Estás seguro de eliminar este usuario?')) {
         await deleteApi(
-          `http://localhost:3000/users/${button.getAttribute('userid')}`
+          `https://my-json-server.typicode.com/JuanPabloArias803/TS-Users-CRUD/users/${button.getAttribute('userid')}`
         );
         NavigateTo('/');
       } else {
