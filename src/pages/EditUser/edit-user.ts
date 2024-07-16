@@ -1,9 +1,27 @@
 import { Navbar, NavbarEvents } from '../../components/Navbar/navbar';
 import { formAction, UserForm } from '../../components/UserForm/user-form';
-import "./edit-user.css";
+import { getApi } from '../../helpers/fetch';
+import { NavigateTo } from '../../Router';
+import './edit-user.css';
 
-export function EditUser() {
-  
+export async function EditUser() {
+  //evaluate valid params
+
+  const params = new URLSearchParams(window.location.search);
+  const userID = params.get('userid');
+  const users: IUser[] = await getApi('http://localhost:3000/users');
+  let userFlag: boolean = false;
+  users.forEach((user) => {
+    if (user.id === userID) {
+      userFlag = true;
+    }
+  });
+
+  if (userFlag === false) {
+    NavigateTo('/not-found');
+    return;
+  }
+
   //render page
 
   const $root = document.querySelector('#root') as HTMLDivElement;
@@ -18,6 +36,5 @@ export function EditUser() {
   //page logic
 
   NavbarEvents();
-  formAction("edit");
-  
+  formAction('edit', userID!);
 }

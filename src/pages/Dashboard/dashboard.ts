@@ -20,10 +20,9 @@ export async function Dashboard() {
   NavbarEvents();
 
   const users: IUser[] = await getApi('http://localhost:3000/users');
-
   function renderCards() {
     let cardsChilds: string = '';
-    users.forEach((user:IUser) => {
+    users.forEach((user: IUser) => {
       cardsChilds += UserCard(user.name, user.email, user.avatar, user.id);
     });
     const $usersContainer = document.querySelector(
