@@ -19,7 +19,9 @@ export async function Dashboard() {
 
   NavbarEvents();
 
-  const users: IUser[] = await getApi('https://my-json-server.typicode.com/JuanPabloArias803/TS-Users-CRUD/users');
+  const users: IUser[] = await getApi(
+    'https://users-json-server-ruby.vercel.app/users'
+  );
   function renderCards() {
     let cardsChilds: string = '';
     users.forEach((user: IUser) => {
